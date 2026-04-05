@@ -24,3 +24,9 @@ Thumbs.db
 *.pem
 *.key
 secrets/
+frontend/fix*.py
+frontend/patch*.py
+frontend/scan*.py
+frontend/check*.py
+frontend/find_submit.py
+frontend/src/App.backup.tsx
