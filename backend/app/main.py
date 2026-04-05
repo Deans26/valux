@@ -1,8 +1,11 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.db.session import engine
 from app.db import models
-from app.routers import auth
+from app.routers import auth, companies, valuation
 
 # Create all database tables on startup
 models.Base.metadata.create_all(bind=engine)
@@ -27,6 +30,8 @@ app.add_middleware(
 
 # Register all routers
 app.include_router(auth.router)
+app.include_router(companies.router)
+app.include_router(valuation.router)
 
 @app.get("/")
 def health_check():
